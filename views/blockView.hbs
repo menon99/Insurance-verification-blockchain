@@ -77,17 +77,22 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
             </script>
         <script>
+            const GRAY = "gray";
+            const GREEN = "green";
+            const RED = "red";
             $(document).ready(function () {
                 console.log('ready');
-                let vals = document.getElementsByClassName('val');
-                for (let i = 0; i < vals.length; i++) {
-                    let txt = vals[i].innerText.split(':')[1].trim();
+                while (true) {
+                    var vals = document.getElementsByClassName('val');
+                    if(!vals.length)
+                        break;
+                    let txt = vals[0].innerText.split(':')[1].trim();
                     if (txt === 'Pending')
-                        vals[i].setAttribute("class", "gray");
+                        vals[0].setAttribute("class", GRAY);
                     else if (txt === 'Accepted')
-                        vals[i].setAttribute("class", "green");
+                        vals[0].setAttribute("class", GREEN);
                     else if (txt === 'Rejected')
-                        vals[i].setAttribute("class", "red");
+                        vals[0].setAttribute("class", RED);
                 }
             });
         </script>
