@@ -115,4 +115,6 @@ const insert = async() => {
     }
 };
 
-insert();
+//insert();
+
+module.exports = insert;

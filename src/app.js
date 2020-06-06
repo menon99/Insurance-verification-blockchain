@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const hbs = require('hbs');
+const insert = require('./insertData');
 require('./db/connect');
 
 const userRouter = require('./routers/userRouter');
@@ -34,6 +35,11 @@ app.use(bodyParser.urlencoded({
 }));
 
 app.use(userRouter);
+
+app.get('/insert', async(req, res) => {
+    insert();
+    res.send('ok');
+});
 
 const PORT = process.env.PORT;
 
